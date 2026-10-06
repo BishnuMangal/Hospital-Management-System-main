@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Select Appointment for Billing</h2>
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for app in appointments %}
+                <tr>
+                    <td>{{ app.AppointmentId }}</td>
+                    <td>{{ app.Patient.Name }}</td>
+                    <td>{{ app.Doctor.DoctorName }}</td>
+                    <td>{{ app.AppointmentDate }}</td>
+                    <td>{{ app.AppointmentTime }}</td>
+                    <td>
+                        <a href="{% url 'add_bill' app.AppointmentId %}" class="btn btn-success btn-sm">Add Bill</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No appointments available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

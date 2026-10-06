@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="mb-4">Edit Appointment</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="PatientId" class="form-label">Patient</label>
+            <select class="form-select" id="PatientId" name="PatientId" required>
+                {% for patient in patients %}
+                    <option value="{{ patient.AaadharNo }}" {% if appointment.Patient.AaadharNo == patient.AaadharNo %}selected{% endif %}>
+                        {{ patient.Name }} - {{ patient.AaadharNo }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="DoctorId" class="form-label">Doctor</label>
+            <select class="form-select" id="DoctorId" name="DoctorId" required>
+                {% for doctor in doctors %}
+                    <option value="{{ doctor.DoctorId }}" {% if appointment.Doctor.DoctorId == doctor.DoctorId %}selected{% endif %}>
+                        {{ doctor.DoctorName }} - {{ doctor.DoctorDepartement }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="AppointmentDate" class="form-label">Date</label>
+            <input type="date" class="form-control" id="AppointmentDate" name="AppointmentDate" value="{{ appointment.AppointmentDate }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="AppointmentTime" class="form-label">Time</label>
+            <input type="time" class="form-control" id="AppointmentTime" name="AppointmentTime" value="{{ appointment.AppointmentTime }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" id="Description" name="Description" rows="3">{{ appointment.Description }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Appointment</button>
+        <a href="{% url 'view_appointment' %}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+</body>
+</html>

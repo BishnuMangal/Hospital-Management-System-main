@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Home</title>
+  <link rel="stylesheet" href="{% static 'css/css1.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+</head>
+<body class="container-fluid px-0 ">
+<header class="p-3 p-md-4 border-bottom " style=" width: 100%;background-color:#ffffff;">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="">
+            <p class="fw-bold fs-3 mt-3 text-primary">HEALTH CARE <span class="bi bi-heart-pulse ms-2"></span></p>
+        </div>
+              <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-end w-75 w-md-auto">
+            <a class="btn btn-outline-primary fw-bold btn-sm fw-bold fs-6 bi bi-person-plus me-1" href="/patient_add/">New Patient Registration</a>
+            <a class="btn btn-outline-primary fw-bold btn-sm  fs-6 bi bi-clipboard2-plus me-1"  href="/viewpatient/">Manage Patient Records</a>
+            <a class="btn btn-outline-primary fw-bold btn-sm fs-6 bi bi-file-earmark-medical me-1"  href="/doctor_add">Doctor Onboarding</a>
+            <a class="btn btn-outline-primary fw-bold btn-sm  fs-6 bi bi-person-gear me-1"  href="/viewdoctor">Doctor Management</a>
+            <a class="btn btn-outline-primary fw-bold btn-sm  fs-6 bi bi-calendar2-check me-1"  href="/view_appointment"> Schedule Appointment</a>
+            <a class="btn btn-outline-primary fw-bold btn-sm fs-6 bi bi-cash-stack me-1" href="{% url 'select_appointment_for_bill' %}">Billing</a>
+
+
+    </div>
+</header>
+<div class="text-center py-4 bg-dark border-top border-bottom border-danger">
+  <div class="container">
+    <h2 class="text-white fw-bold mb-3 display-5">
+      <span class="bi bi-ambulance text-danger me-2"></span>
+      <span class="text-danger">24/7 EMERGENCY SERVICES</span>
+      <span class="bi bi-heart-pulse text-danger ms-2"></span>
+    </h2>
+    <div class="d-inline-block bg-danger text-white px-4 py-2 rounded-pill">
+      <span class="bi bi-telephone-fill me-2"></span>
+      IMMEDIATE CARE: 108 / 911 / 112
+    </div>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+</body>
+</html>

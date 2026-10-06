@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+
+    width: 100%;
+    background: url('https://cdn.pixabay.com/photo/2019/06/17/17/57/stethoscope-4280497_1280.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-shade{
+    background: rgba(1, 1, 1, 0.4);
+    height: 100vh;
+}
+.wel {
+  height: 85px;
+  width: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 123, 255, 0.105),
+    rgba(40, 167, 70, 0.298),
+    rgba(255, 193, 7, 0.29)
+  );
+}
+
+ /* .logo-img {
+      height: 80px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+    } */

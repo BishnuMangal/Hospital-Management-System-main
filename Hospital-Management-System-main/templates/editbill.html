@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Edit Bill {{ bill.BillId }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="Amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" name="Amount" id="Amount" value="{{ bill.Amount }}" step="0.01" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="PaymentStatus" class="form-label">Payment Status</label>
+            <select class="form-select" name="PaymentStatus" id="PaymentStatus">
+                {% for key, value in payment_choices %}
+                    <option value="{{ key }}" {% if bill.PaymentStatus == key %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Bill</button>
+        <a href="{% url 'view_bills' %}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}

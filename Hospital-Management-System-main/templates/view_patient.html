@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<div class="mt-2 d-flex justify-content-center align-items-center">
+   <div class="table-responsive shadow rounded w-75 bg-primary">
+        <h2 class="text-center text-white">Patient list <span class="bi bi-person-fill"></span></h2>
+     <table class="table table-hover table-bordered table-striped align-middle text-center">
+         <thead class="table-dark">
+             <tr>
+                <th scope="col" class="fs-4">AADHAAR NUMBER</th>
+                <th scope="col" class="fs-4"> NAME</th>
+                <th scope="col" class="fs-4">CONTACT NUMBER</th>
+                <th scope="col" class="fs-4">EDIT PATIENT DETAILS</th>
+                <th scope="col" class="fs-4">DELETE PATIENT DETAILS</th>
+             </tr>
+         </thead>
+         <tbody>
+            {% for row in pat %}
+               <tr>
+                   <td class="fw-bold bg-secondary text-white" >{{row.AaadharNo}}</td>
+                   <td class="fw-bold bg-secondary text-white">{{row.Name}}</td>
+                   <td class="fw-bold bg-secondary text-white">{{row.Mob}}</td>
+                   <td class="fw-bold bg-secondary " ><button class="btn btn-outline-warning w-100 btn-outline-success "><a class="text-decoration-none p-4 text-white fw-bold fs-6" href="{% url 'editpatient' row.AaadharNo %}">Edit Patient</a></button></td>
+                   <td class="fw-bold bg-secondary " ><button class="btn btn-outline-danger w-100 btn-outline-primary"><a class="text-decoration-none p-4 text-white fw-bold fs-6" href="{% url 'deletepatient' row.AaadharNo %}">Delete Patient</a></button></td>
+               </tr>
+            {%endfor%}
+         </tbody>
+     </table>
+   </div>
+</div>
+
+{% endblock %}

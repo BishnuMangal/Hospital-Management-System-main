@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Add Bill for Appointment {{ appointment.AppointmentId }}</h2>
+
+    {% if msg %}
+        <div class="alert alert-info">{{ msg }}</div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="Amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" name="Amount" id="Amount" step="0.01" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="PaymentStatus" class="form-label">Payment Status</label>
+            <select class="form-select" name="PaymentStatus" id="PaymentStatus">
+                <option value="Unpaid" selected>Unpaid</option>
+                <option value="Paid">Paid</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Generate Bill</button>
+        <a href="{% url 'view_bills' %}" class="btn btn-secondary">Back</a>
+    </form>
+</div>
+{% endblock %}

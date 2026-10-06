@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center   bg-transparent mt-5">
+  <form method="POST" class=" p-4 rounded shadow-lg w-100 " style="max-width: 500px;">
+    {% csrf_token %}
+    
+    <h2  class="text-center text-black mb-4">Add Patient <span class="bi bi-person-fill"></span></h2>
+
+    <div class="mb-3">
+      <label for="aadhar" class="form-label fw-bold text-dark text-white">Aadhar Number</label>
+      <input type="text" name="Aadhar" 
+             pattern="\d{12}" maxlength="50"
+             title="Aadhar must be 12 digits"
+             required class="form-control " placeholder="Enter 12-digit Aadhar Number">
+    </div>
+
+    <div class="mb-3">
+      <label for="name" class="form-label fw-bold text-white">Full Name</label>
+      <input type="text" name="Name" 
+             pattern="[A-Za-z\s]+" 
+             title="Name must contain only letters and spaces"
+             required class="form-control" placeholder="Enter Full Name">
+    </div>
+
+    <div class="mb-3">
+      <label for="mobile" class="form-label fw-bold text-white ">Mobile Number</label>
+      <input type="text" name="Num" id="mobile"
+             pattern="[6-9]\d{9}" maxlength="10"
+             title="Mobile number must be 10 digits starting with 6-9"
+             required class="form-control" placeholder="Enter 10-digit Mobile Number">
+    </div>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-warning w-25 fw-bold ">Save</button>
+    </div>
+
+  
+    {% if msg %}
+    <div class="alert alert-success mt-3 text-center">
+      {{ msg }}
+    </div>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}

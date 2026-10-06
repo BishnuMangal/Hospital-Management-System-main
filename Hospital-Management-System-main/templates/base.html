@@ -1,0 +1,43 @@
+
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="carousel slide" data-bs-ride="carousel" id="banner">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{% static 'css/images/doctorsteam.jpg' %}" alt="docotors" class="d-block w-100"  style="min-height: 500px; max-height: 400px; ">
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'css/images/bed.jpg' %}" alt="bed" class="d-block w-100"  style="min-height: 500px; max-height: 400px; ">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'css/images/mri.jpg' %}" alt="mri" class="d-block w-100"  style="min-height: 500px; max-height: 400px; ">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'css/images/surgery.jpg' %}" alt="surgery" class="d-block w-100"  style="min-height: 500px; max-height: 400px; ">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'css/images/amb.jpg' %}" alt="Ambulance" class="d-block w-100"  style="min-height: 500px; max-height: 400px; object-fit: cover; ">
+    </div>
+    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#banner">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#banner">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  {% endblock %}
+
+  <!-- <div class="main">
+    <div class="bg-shade d-flex justify-content-center align-items-center">
+        <div class="w-25">
+
+        </div>
+    </div>
+  </div> -->
+
+
